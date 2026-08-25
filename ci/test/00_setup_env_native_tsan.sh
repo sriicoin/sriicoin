@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2019-present The Bitcoin Core developers
+# Copyright (c) 2019-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,8 +16,8 @@ export PIP_PACKAGES="--break-system-packages pycapnp"
 export DEP_OPTS="CC=clang CXX=clang++ CXXFLAGS='${LIBCXX_FLAGS}' NO_QT=1"
 export GOAL="install"
 export CI_LIMIT_STACK_SIZE=1
-# Disable fortification with -U_FORTIFY_SOURCE to work around https://github.com/bitcoin/bitcoin/issues/30586
-export BITCOIN_CONFIG="\
+# Disable fortification with -U_FORTIFY_SOURCE to work around https://github.com/sriicoin/sriicoin/issues/30586
+export SRIICOIN_CONFIG="\
   --preset=dev-mode \
   -DBUILD_GUI=OFF \
   -DSANITIZERS=thread \
