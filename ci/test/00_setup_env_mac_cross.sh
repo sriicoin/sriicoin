@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2019-present The Bitcoin Core developers
+# Copyright (c) 2019-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 export LC_ALL=C.UTF-8
 
-export SDK_URL=${SDK_URL:-https://bitcoincore.org/depends-sources/sdks}
+export SDK_URL=${SDK_URL:-https://sriicoincore.org/depends-sources/sdks}
 
 export CONTAINER_NAME=ci_macos_cross
 export CI_IMAGE_NAME_TAG="mirror.gcr.io/debian:trixie" # Check that https://packages.debian.org/trixie/clang (version 19, similar to guix) can cross-compile
@@ -18,7 +18,7 @@ export OSX_SDK_SHA256=9600fa93644df674ee916b5e2c8a6ba8dacf631996a65dc922d003b98b
 export RUN_UNIT_TESTS=false
 export RUN_FUNCTIONAL_TESTS=false
 export GOAL="deploy"
-export BITCOIN_CONFIG="\
+export SRIICOIN_CONFIG="\
  --preset=dev-mode \
  -DWITH_USDT=OFF \
  -DREDUCE_EXPORTS=ON \
