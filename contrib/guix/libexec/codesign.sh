@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) The Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit.
 export LC_ALL=C.UTF-8
@@ -109,7 +109,7 @@ mkdir -p "$DISTSRC"
             esac
 
             # Apply detached codesignatures (in-place)
-            signapple apply dist/Bitcoin-Qt.app codesignatures/osx/"${HOST}"/dist/Bitcoin-Qt.app
+            signapple apply dist/Sriicoin-Qt.app codesignatures/osx/"${HOST}"/dist/Sriicoin-Qt.app
             find "${DISTNAME}" \( -wholename "*/bin/*" -o -wholename "*/libexec/*" \) -type f | while read -r bin
             do
                 signapple apply "${bin}" "codesignatures/osx/${HOST}/${bin}.${ARCH}sign"
