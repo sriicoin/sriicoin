@@ -1,4 +1,4 @@
-# Copyright (c) 2023-present The Bitcoin Core developers
+# Copyright (c) 2020-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit.
 
@@ -29,7 +29,7 @@ defaults:
 jobs:
   test-each-commit:
     name: 'test ancestor commits'
-    runs-on: ${{ github.repository == 'bitcoin/bitcoin' && 'warp-ubuntu-latest-x64-8x' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository == 'sriicoin/sriicoin' && 'warp-ubuntu-latest-x64-8x' || 'ubuntu-latest' }}
     env:
       TEST_RUNNER_PORT_MIN: "14000"  # Use a larger port range to avoid colliding with other CI services.
     if: github.event_name == 'pull_request' && github.event.pull_request.commits != 1
@@ -306,7 +306,7 @@ jobs:
   windows-cross:
     name: 'Windows-cross to x86_64, ${{ matrix.crt }}'
     needs: record-frozen-commit
-    runs-on: ${{ github.repository == 'bitcoin/bitcoin' && 'warp-ubuntu-latest-x64-4x' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository == 'sriicoin/sriicoin' && 'warp-ubuntu-latest-x64-4x' || 'ubuntu-latest' }}
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
 
     strategy:
@@ -340,12 +340,12 @@ jobs:
         id: restore-cache
         uses: ./.github/actions/cache/restore
         with:
-          provider: ${{ github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha' }}
+          provider: ${{ github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha' }}
 
       - name: Configure Docker
         uses: ./.github/actions/configure-docker
         with:
-          provider: ${{ github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha' }}
+          provider: ${{ github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha' }}
 
       - name: CI script
         run: ./ci/test_run_all.sh
@@ -353,7 +353,7 @@ jobs:
       - name: Save caches
         uses: ./.github/actions/cache/save
         with:
-          provider: ${{ github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha' }}
+          provider: ${{ github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha' }}
 
       - name: Upload built executables
         uses: actions/upload-artifact@v7
@@ -398,7 +398,7 @@ jobs:
         with:
           name: ${{ matrix.artifact-name }}-${{ github.run_id }}
 
-      - name: Run bitcoind.exe
+      - name: Run sriicoind.exe
         run: py -3 .github/ci-windows-cross.py print_version
 
       - *IMPORT_VS_ENV
@@ -420,7 +420,7 @@ jobs:
 
   ci-matrix:
     name: ${{ matrix.name }}
-    runs-on: ${{ github.repository == 'bitcoin/bitcoin' && matrix.warp-runner || matrix.fallback-runner }}
+    runs-on: ${{ github.repository == 'sriicoin/sriicoin' && matrix.warp-runner || matrix.fallback-runner }}
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
     timeout-minutes: ${{ matrix.timeout-minutes }}
 
@@ -535,7 +535,7 @@ jobs:
             timeout-minutes: 120
             file-env: './ci/test/00_setup_env_native_msan.sh'
 
-          - name: 'riscv32 bare metal, static libbitcoin_consensus'
+          - name: 'riscv32 bare metal, static libsriicoin_consensus'
             warp-runner: 'warp-ubuntu-latest-x64-8x'
             fallback-runner: 'ubuntu-latest'
             timeout-minutes: 120
@@ -553,15 +553,15 @@ jobs:
         id: restore-cache
         uses: ./.github/actions/cache/restore
         with:
-          provider: ${{ matrix.provider || (github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha') }}
+          provider: ${{ matrix.provider || (github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha') }}
 
       - name: Configure Docker
         uses: ./.github/actions/configure-docker
         with:
-          provider: ${{ matrix.provider || (github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha') }}
+          provider: ${{ matrix.provider || (github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha') }}
 
       - name: Clear unnecessary files
-        if: ${{ github.repository != 'bitcoin/bitcoin' || matrix.provider == 'gha' }} # Only needed on GHA runners
+        if: ${{ github.repository != 'sriicoin/sriicoin' || matrix.provider == 'gha' }} # Only needed on GHA runners
         uses: ./.github/actions/clear-files
 
       - name: Enable bpfcc script
@@ -581,15 +581,15 @@ jobs:
       - name: Save caches
         uses: ./.github/actions/cache/save
         with:
-          provider: ${{ matrix.provider || (github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha') }}
+          provider: ${{ matrix.provider || (github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha') }}
 
   lint:
     name: 'lint'
-    runs-on: ${{ github.repository == 'bitcoin/bitcoin' && 'warp-ubuntu-latest-x64-2x' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository == 'sriicoin/sriicoin' && 'warp-ubuntu-latest-x64-2x' || 'ubuntu-latest' }}
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
     timeout-minutes: 20
     env:
-      CONTAINER_NAME: "bitcoin-linter"
+      CONTAINER_NAME: "sriicoin-linter"
     steps:
       - *ANNOTATION_PR_NUMBER
 
@@ -602,7 +602,7 @@ jobs:
       - name: Configure Docker
         uses: ./.github/actions/configure-docker
         with:
-          provider: ${{ github.repository == 'bitcoin/bitcoin' && 'warp' || 'gha' }}
+          provider: ${{ github.repository == 'sriicoin/sriicoin' && 'warp' || 'gha' }}
 
       - name: CI script
         run: |
