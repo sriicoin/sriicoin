@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) The Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit.
 export LC_ALL=C.UTF-8
@@ -68,10 +68,10 @@ mkdir -p "$DISTSRC"
           -DREDUCE_EXPORTS=ON \
           -DWITH_CCACHE=OFF
 
-    # Build Bitcoin Core
+    # Build Sriicoin Core
     cmake --build build -j "$JOBS"
 
-    # Install built Bitcoin Core
+    # Install built Sriicoin Core
     cmake --install build
 )
 
