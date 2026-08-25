@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) The Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit.
 export LC_ALL=C.UTF-8
@@ -43,7 +43,7 @@ mkdir -p "$DISTSRC"
     cmake -S . -B build \
           --toolchain "${BASEPREFIX}/${HOST}/toolchain.cmake" \
           -DBUILD_BENCH=OFF \
-          -DBUILD_BITCOIN_BIN=OFF \
+          -DBUILD_SRIICOIN_BIN=OFF \
           -DBUILD_CLI=OFF \
           -DBUILD_DAEMON=OFF \
           -DBUILD_FUZZ_BINARY=OFF \
@@ -57,11 +57,11 @@ mkdir -p "$DISTSRC"
           -DWITH_CCACHE=OFF \
           -Werror=dev
 
-    # Build Bitcoin Core
-    cmake --build build -j "$JOBS" --target bitcoin-qt
+    # Build Sriicoin Core
+    cmake --build build -j "$JOBS" --target sriicoin-qt
 
-    # Install built Bitcoin Core
-    cmake --install build --component bitcoin-qt
+    # Install built Sriicoin Core
+    cmake --install build --component sriicoin-qt
 )
 
 # shellcheck source=package.sh
