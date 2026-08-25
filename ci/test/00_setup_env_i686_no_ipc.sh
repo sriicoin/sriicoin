@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2020-present The Bitcoin Core developers
+# Copyright (c) 2020-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@ export PACKAGES="g++-multilib"
 export DEP_OPTS="DEBUG=1 NO_IPC=1"
 export GOAL="install"
 export CI_LIMIT_STACK_SIZE=1
-export BITCOIN_CONFIG="\
+export SRIICOIN_CONFIG="\
  --preset=dev-mode \
  -DENABLE_IPC=OFF \
  -DCMAKE_BUILD_TYPE=Debug \
