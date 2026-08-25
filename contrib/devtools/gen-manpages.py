@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2022-present The Bitcoin Core developers
+# Copyright (c) 2022-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 import os
@@ -10,13 +10,13 @@ import tempfile
 import argparse
 
 BINARIES = [
-'bin/bitcoin',
-'bin/bitcoind',
-'bin/bitcoin-cli',
-'bin/bitcoin-tx',
-'bin/bitcoin-wallet',
-'bin/bitcoin-util',
-'bin/bitcoin-qt',
+'bin/sriicoin',
+'bin/sriicoind',
+'bin/sriicoin-cli',
+'bin/sriicoin-tx',
+'bin/sriicoin-wallet',
+'bin/sriicoin-util',
+'bin/sriicoin-qt',
 ]
 
 parser = argparse.ArgumentParser(
@@ -51,7 +51,7 @@ versions = []
 for relpath in BINARIES:
     abspath = os.path.join(builddir, relpath)
     # Prevent QT from emitting a localized version string for --version and --help
-    is_qt = relpath == "bin/bitcoin-qt"
+    is_qt = relpath == "bin/sriicoin-qt"
     try:
         cmd_args = ["--version"]
         if is_qt:
