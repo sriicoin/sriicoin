@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,11 +8,11 @@ export LC_ALL=C.UTF-8
 
 export CONTAINER_NAME=ci_native_riscv_bare
 
-export GOAL="bitcoin_consensus bitcoin_crypto secp256k1"
+export GOAL="sriicoin_consensus sriicoin_crypto secp256k1"
 export CI_IMAGE_NAME_TAG="mirror.gcr.io/ubuntu:26.04"
 export HOST="riscv32-unknown-elf-gcc"
 export PACKAGES="autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libslirp-dev"
-export BITCOIN_CONFIG="-DCMAKE_C_COMPILER=/opt/riscv-ilp32/bin/riscv32-unknown-elf-gcc \
+export SRIICOIN_CONFIG="-DCMAKE_C_COMPILER=/opt/riscv-ilp32/bin/riscv32-unknown-elf-gcc \
  -DCMAKE_CXX_COMPILER=/opt/riscv-ilp32/bin/riscv32-unknown-elf-g++ \
  -DBUILD_KERNEL_LIB=OFF \
  -DBUILD_UTIL_CHAINSTATE=OFF \
@@ -23,7 +23,7 @@ export BITCOIN_CONFIG="-DCMAKE_C_COMPILER=/opt/riscv-ilp32/bin/riscv32-unknown-e
  -DBUILD_TX=OFF \
  -DBUILD_UTIL=OFF \
  -DBUILD_CLI=OFF \
- -DBUILD_BITCOIN_BIN=OFF \
+ -DBUILD_SRIICOIN_BIN=OFF \
  -DENABLE_WALLET=OFF \
  -DENABLE_EXTERNAL_SIGNER=OFF \
  -DENABLE_IPC=OFF \
