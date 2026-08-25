@@ -5,3 +5,4 @@ host = https://www.transifex.com
 file_filter = src/qt/locale/sriicoin_<lang>.ts
 source_file = src/qt/locale/sriicoin_en.ts
 source_lang = en
+
