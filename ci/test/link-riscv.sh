@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) The Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -59,8 +59,8 @@ echo -e "#include <sys/stat.h>
     start.o \
     syscalls.o \
     -Wl,--whole-archive \
-    "${BASE_BUILD_DIR}"/lib/libbitcoin_consensus.a \
-    "${BASE_BUILD_DIR}"/lib/libbitcoin_crypto.a \
+    "${BASE_BUILD_DIR}"/lib/libsriicoin_consensus.a \
+    "${BASE_BUILD_DIR}"/lib/libsriicoin_crypto.a \
     "${BASE_BUILD_DIR}"/src/secp256k1/lib/libsecp256k1.a \
     -Wl,--no-whole-archive \
     "${LIBSTDCXX}" \
