@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2019-present The Bitcoin Core developers
+# Copyright (c) 2019-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@ export RUN_FUNCTIONAL_TESTS=false
 export RUN_FUZZ_TESTS=true
 export FUZZ_TESTS_CONFIG="--valgrind"
 export GOAL="all"
-export BITCOIN_CONFIG="\
+export SRIICOIN_CONFIG="\
  -DBUILD_FOR_FUZZING=ON \
  -DCMAKE_C_COMPILER=clang \
  -DCMAKE_CXX_COMPILER=clang++ \
