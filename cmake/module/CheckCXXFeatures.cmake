@@ -1,10 +1,10 @@
-# Copyright (c) 2026-present The Bitcoin Core developers
+# Copyright (c) 2026-present The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit/.
 
 include_guard(GLOBAL)
 
-# Checks for C++ features required to compile Bitcoin Core.
+# Checks for C++ features required to compile Sriicoin Core.
 
 include(CheckCXXSourceCompiles)
 
