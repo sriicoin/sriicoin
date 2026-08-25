@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) The Bitcoin Core developers
+# Copyright (c) The Sriicoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or https://opensource.org/license/mit.
 export LC_ALL=C.UTF-8
@@ -114,7 +114,7 @@ profiledir_for_host() {
 ################
 
 VERSION="${FORCE_VERSION:-$(git_head_version)}"
-DISTNAME="${DISTNAME:-bitcoin-${VERSION}}"
+DISTNAME="${DISTNAME:-sriicoin-${VERSION}}"
 
 version_base_prefix="${PWD}/guix-build-"
 VERSION_BASE="${version_base_prefix}${VERSION}"  # TOP
